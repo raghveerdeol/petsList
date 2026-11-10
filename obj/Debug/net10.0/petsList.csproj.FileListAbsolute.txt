@@ -1,0 +1,15 @@
+/home/kratos/c#/petsList/bin/Debug/net10.0/petsList
+/home/kratos/c#/petsList/bin/Debug/net10.0/petsList.deps.json
+/home/kratos/c#/petsList/bin/Debug/net10.0/petsList.runtimeconfig.json
+/home/kratos/c#/petsList/bin/Debug/net10.0/petsList.dll
+/home/kratos/c#/petsList/bin/Debug/net10.0/petsList.pdb
+/home/kratos/c#/petsList/obj/Debug/net10.0/petsList.GeneratedMSBuildEditorConfig.editorconfig
+/home/kratos/c#/petsList/obj/Debug/net10.0/petsList.AssemblyInfoInputs.cache
+/home/kratos/c#/petsList/obj/Debug/net10.0/petsList.AssemblyInfo.cs
+/home/kratos/c#/petsList/obj/Debug/net10.0/petsList.csproj.CoreCompileInputs.cache
+/home/kratos/c#/petsList/obj/Debug/net10.0/petsList.sourcelink.json
+/home/kratos/c#/petsList/obj/Debug/net10.0/petsList.dll
+/home/kratos/c#/petsList/obj/Debug/net10.0/refint/petsList.dll
+/home/kratos/c#/petsList/obj/Debug/net10.0/petsList.pdb
+/home/kratos/c#/petsList/obj/Debug/net10.0/petsList.genruntimeconfig.cache
+/home/kratos/c#/petsList/obj/Debug/net10.0/ref/petsList.dll

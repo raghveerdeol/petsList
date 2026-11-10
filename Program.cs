@@ -319,8 +319,32 @@ switch (menuSelection)
             }
         }
         break;
-
-
+    // 7. Display all cats with a specified characteristic
+    case 7:
+        for (int i = 0; i < maxPets; i++)
+        {
+            if (ourAnimals[i, 0].Trim().ToLower() != "id #:" && ourAnimals[i, 1].Trim().ToLower() == "species: cat")
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    Console.WriteLine(ourAnimals[i, j]);
+                }
+            }
+        }
+        break;
+    // 8. Display all dogs with a specified characteristic
+    case 8:
+        for (int i = 0; i < maxPets; i++)
+        {
+            if (ourAnimals[i, 0].Trim().ToLower() != "id #:" && ourAnimals[i, 1].Trim().ToLower() == "species: dog")
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    Console.WriteLine(ourAnimals[i, j]);
+                }
+            }
+        }
+        break;
 }
 
 Console.WriteLine($"You selected menu option {menuSelection}.");
