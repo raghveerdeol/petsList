@@ -124,9 +124,24 @@ switch (menuSelection)
             }
         }
 
-        if (maxPets == countPets) {
+        if (maxPets <= countPets) {
             Console.WriteLine("Sorry, you reached the max stored pets!");
             break;
+        } else {
+            Console.WriteLine($"We have {countPets} pets. You can add more {maxPets - countPets} {(maxPets - countPets == 1 ? "pet" : "pets")}!");
+            Console.WriteLine("Do you want to add a pet?");
+            string addAPet = "";
+            do
+            {
+                addAPet = Console.ReadLine().Trim().ToLower();
+                if (addAPet != "n" && addAPet != "y")
+                {
+                    addAPet = "";
+                }
+            } while (addAPet == "");
+            if( addAPet == "n")
+                break;
+
         }
         string[] questions = ["Species: ", "Age: ", "Nickname: ", "Physical description: ", "Personality: "];
 
@@ -151,14 +166,6 @@ switch (menuSelection)
                     } while (animalAge == "");
                     break;
                 case 2:
-                    animalAge = "";
-                    do
-                    {
-                        Console.WriteLine(questions[i]);
-                        animalAge = Console.ReadLine().Trim();
-                    } while (animalAge == "");
-                    break;
-                case 3:
                     animalNickname = "";
                     do
                     {
@@ -166,7 +173,7 @@ switch (menuSelection)
                         animalNickname = Console.ReadLine().Trim();
                     } while (animalNickname == "");
                     break;
-                case 4:
+                case 3:
                     animalPhysicalDescription = "";
                     do
                     {
@@ -174,7 +181,7 @@ switch (menuSelection)
                         animalPhysicalDescription = Console.ReadLine().Trim();
                     } while (animalPhysicalDescription == "");
                     break;
-                case 5:
+                case 4:
                     animalPersonalityDescription = "";
                     do
                     {
