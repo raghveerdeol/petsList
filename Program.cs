@@ -250,7 +250,8 @@ switch (menuSelection)
                     } while (inputAge == "");
                     
                 } 
-                else if (ourAnimals[i, 4].Trim().ToLower() == "physical description:")
+                
+                if (ourAnimals[i, 4].Trim().ToLower() == "physical description:")
                 {
                     Console.WriteLine($"Add a physical description for pet {ourAnimals[i, 0]}");
                     string inputPhysical = "";
