@@ -129,7 +129,7 @@ switch (menuSelection)
             break;
         } else {
             Console.WriteLine($"We have {countPets} pets. You can add more {maxPets - countPets} {(maxPets - countPets == 1 ? "pet" : "pets")}!");
-            Console.WriteLine("Do you want to add a pet?");
+            Console.WriteLine("Do you want to add a pet? y/n");
             string addAPet = "";
             do
             {
@@ -137,8 +137,9 @@ switch (menuSelection)
                 if (addAPet != "n" && addAPet != "y")
                 {
                     addAPet = "";
+                    Console.WriteLine("Select an option between y or n!");
                 }
-            } while (addAPet == "");
+            } while (addAPet != "n" && addAPet != "y");
             if( addAPet == "n")
                 break;
 
@@ -154,7 +155,15 @@ switch (menuSelection)
                     do
                     {
                         Console.WriteLine(questions[i]);
-                        animalSpecies = Console.ReadLine().Trim();
+                        string inputSpecies = Console.ReadLine().Trim().ToLower();
+                        if (inputSpecies == "cat" || inputSpecies == "dog")
+                        {
+                            animalSpecies = inputSpecies;
+                        }
+                        else {
+                            Console.WriteLine("Please insert cat or dog!");
+                        }
+
                     } while (animalSpecies == "");
                     break;
                 case 1:
@@ -162,7 +171,15 @@ switch (menuSelection)
                     do
                     {
                         Console.WriteLine(questions[i]);
-                        animalAge = Console.ReadLine().Trim();
+                        string inputAge = Console.ReadLine().Trim();
+                        if (int.TryParse(inputAge, out int age) || inputAge == "?")
+                        {
+                            animalAge = inputAge;
+                        }
+                        else 
+                        {
+                            Console.WriteLine("Please age number, if you don't know the age enter '?'!");
+                        }
                     } while (animalAge == "");
                     break;
                 case 2:
@@ -234,8 +251,8 @@ switch (menuSelection)
             Console.WriteLine("No animal found without age or physical description!");
         }
         break;
-    case 4:
     // 4. Ensure animal nicknames and personality descriptions are complete
+    case 4:
         List<string> animalsNoData2 = new List<string>();
         for (int i = 0; i < maxPets; i++)
         {
