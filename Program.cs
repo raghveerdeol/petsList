@@ -227,29 +227,50 @@ switch (menuSelection)
         break;
     // 3. Ensure animal ages and physical descriptions are complete
     case 3:
-        List<string> animalsNoData = new List<string>();
         for (int i = 0; i < maxPets; i++)
         {
             if(ourAnimals[i, 0].Trim().ToLower() != "id #:")
             {
-                if (ourAnimals[i, 2].Trim().ToLower() == "age:" || ourAnimals[i, 4].Trim().ToLower() == "Physical description:")
+                if (ourAnimals[i, 2].Trim().ToLower() == "age:" || ourAnimals[i, 2].Trim().ToLower() == "age: ?")
                 {
-                    animalsNoData.Add(ourAnimals[i, 0]);
+                    Console.WriteLine($"Add tha age for pet {ourAnimals[i, 0]}");
+                    string inputAge = "";
+                    do
+                    {
+                        inputAge = Console.ReadLine().Trim();
+                        if (int.TryParse(inputAge, out int age))
+                        {
+                            ourAnimals[i, 2] = "Age: " + inputAge;
+                        } 
+                        else 
+                        {
+                            inputAge = "";
+                            Console.WriteLine("Please insert a valid age");
+                        }
+                    } while (inputAge == "");
+                    
+                } 
+                else if (ourAnimals[i, 4].Trim().ToLower() == "physical description:")
+                {
+                    Console.WriteLine($"Add a physical description for pet {ourAnimals[i, 0]}");
+                    string inputPhysical = "";
+                    do
+                    {
+                        inputPhysical = Console.ReadLine().Trim();
+                        if (inputPhysical.Count() > 3)
+                        {
+                            ourAnimals[i, 2] = "Physical description: " + inputPhysical;
+                        } 
+                        else 
+                        {
+                            inputPhysical = "";
+                            Console.WriteLine("Please insert a valid physical description. Need to be more than 3 char!");
+                        }
+                    } while (inputPhysical == "" || inputPhysical.Count() <= 3);
                 }
             }
         }
-        if (animalsNoData.Count() > 0)
-        {
-            Console.WriteLine($"The animals without age or physical description are: ");
-            foreach(string animal in animalsNoData)
-            {
-                Console.WriteLine(animal);
-            }
-        }
-        else
-        {
-            Console.WriteLine("No animal found without age or physical description!");
-        }
+        Console.WriteLine("Age and physical description fields are complete for all");
         break;
     // 4. Ensure animal nicknames and personality descriptions are complete
     case 4:
