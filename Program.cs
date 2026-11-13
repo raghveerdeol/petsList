@@ -275,29 +275,49 @@ switch (menuSelection)
         break;
     // 4. Ensure animal nicknames and personality descriptions are complete
     case 4:
-        List<string> animalsNoData2 = new List<string>();
         for (int i = 0; i < maxPets; i++)
         {
             if(ourAnimals[i, 0].Trim().ToLower() != "id #:")
             {
-                if (ourAnimals[i, 3].Trim().ToLower() == "nickname:" || ourAnimals[i, 5].Trim().ToLower() == "personality:")
+                if (ourAnimals[i, 3].Trim().ToLower() == "nickname:")
                 {
-                    animalsNoData2.Add(ourAnimals[i, 0]);
+                    Console.WriteLine($"Insert pet nickname for {ourAnimals[i, 0]}");
+                    string petNickname = "";
+                    do
+                    {
+                        petNickname = Console.ReadLine().Trim();
+                        if (petNickname == null || petNickname == "" || petNickname.Count() < 3)
+                        {
+                            Console.WriteLine("Please enter an valid pet nickname! Minimum length 3 char!");
+                        } 
+                        else 
+                        {
+                            ourAnimals[i, 3] = "Nickname: " + petNickname;
+                        }
+                    } while (petNickname == "");
+
+                }
+
+                if(ourAnimals[i, 5].Trim().ToLower() == "personality:")
+                {
+                    Console.WriteLine($"Insert pet personality description for {ourAnimals[i, 0]}");
+                    string petPersonality = "";
+                    do
+                    {
+                        petPersonality = Console.ReadLine().Trim();
+                        if (petPersonality == null || petPersonality == "" || petPersonality.Count() < 3)
+                        {
+                            Console.WriteLine("Please enter an valid pet Personality! Minimum length 3 char!");
+                        } 
+                        else 
+                        {
+                            ourAnimals[i, 3] = "Personality: " + petPersonality;
+                        }
+                    } while (petPersonality == "");
                 }
             }
         }
-        if (animalsNoData2.Count() > 0)
-        {
-            Console.WriteLine($"The animals without nickname or personality are: ");
-            foreach(string animal in animalsNoData2)
-            {
-                Console.WriteLine(animal);
-            }
-        }
-        else
-        {
-            Console.WriteLine("No animal found without nickname or personality!");
-        }
+
         break;
     // 5. Edit an animal’s age
     case 5:
